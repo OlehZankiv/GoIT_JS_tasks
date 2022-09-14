@@ -1,22 +1,27 @@
-// # Модуль 1. Занятие 1. Переменные, типы и операторы
+// # Модуль 1. Заняття 1. Змінні, типи і оператори
 
-// ## Example 1 - Математические операторы
+// ## Example 1 - Математичні оператори
 
-// Выведи на экран общее количество яблок и винограда. Разницу яблок и винограда.
+// Виведи на екран загальну колькість яблук і винограду. Різницю яблук і винограду.
 
-// const apples = 47;
 // const grapes = 135;
-// const total = ;
-// console.log(total)
-// const diff = ;
-// console.log(diff)
+// const apples = 47;
+// const total = grapes + apples;
+
+// console.log(total);
+
+// const diff = apples - grapes;
+
+// console.log(diff);
 
 // ## Example 2 - Комбинированные операторы
 
 // Замени выражение переопределения комбинированным оператором `+=`.
 
 // let students = 100;
-// students = students + 50;
+
+// students += 50;
+
 // console.log(students);
 
 // ## Example 3 - Приоритет операторов
@@ -25,6 +30,10 @@
 // `result`.
 
 // const result = 108 + 223 - 2 * 5;
+// 1) 2 * 5
+// 2) 108 + 223
+// 3) (2) - (1)
+
 // console.log(result);
 
 // ## Example 4 - Класс Math
@@ -35,15 +44,17 @@
 
 // const value = 27.5;
 
+// console.log(Math.round(value));
+
 // ## Example 5 - Шаблонные строки
 
 // Составь фразу с помощью шаблонных строк `A has B bots in stock`, где A, B -
 // переменные вставленные в строку.
 
-// const companyName = 'Cyberdyne Systems';
+// const companyName = "Cyberdyne Systems";
 // const repairBots = 150;
 // const defenceBots = 50;
-// const message = ``;
+// const message = `${companyName} has ${repairBots + defenceBots} bots in stock`;
 // console.log(message); // "Cyberdyne Systems has 200 bots in stock"
 
 // ## Example 6 - Методы строк и чейнинг
@@ -58,11 +69,15 @@
 
 // Индекс массиы тела необходимо округлить до одной цифры после запятой;
 
-// let weight = '88,3';
-// let height = '1.75';
+// const weight = "88,3"; // replace , - . => 88.3
+// const height = "1.75";
 
-// const bmi = ;
-// console.log(bmi); // 28.8
+// const parsedWeight = parseFloat(weight.replace(",", "."));
+// const parsedHeight = parseFloat(height);
+
+// const bmi = parsedWeight / Math.pow(parsedHeight, 2);
+
+// console.log(bmi.toFixed(2)); // 28.8
 
 // ## Example 7 - Операторы сравнения и приведение типов
 
@@ -70,11 +85,20 @@
 
 // console.log(5 > 4);
 
-// console.log(10 >= '7');
+// console.log(10 >= "7");
 
-// console.log('2' > '12');
+// 3 -> 51
+// 2 -> 50
+// 1 -> 49
 
-// console.log('2' < '12');
+// console.log("abc" > "abwac");
+
+// const firstCode = "2".charCodeAt();
+// const secondCode = "1".charCodeAt();
+
+// console.log(firstCode > secondCode);
+
+// console.log("2" < "12");
 
 // console.log('4' == 4);
 
@@ -90,7 +114,7 @@
 
 // console.log('0' === false);
 
-// console.log('Papaya' < 'papaya');
+// console.log("Papaya" < "papaya");
 
 // console.log('Papaya' === 'papaya');
 
@@ -102,9 +126,12 @@
 
 // Каким будет результат выражений?
 
+// && -> зупиняється на першій брехні(false) або останній правді(true)
+// || -> зупиняється на першій правді(true) або останній брехні(false)
+
 // console.log(true && 3);
 
-// console.log(false && 3);
+// console.log(22 && 3 && undefined);
 
 // console.log(true && 4 && 'kiwi');
 
@@ -146,6 +173,8 @@
 // - 1441 покажет 24:01
 
 // const totalMinutes = 70;
+
+// Нижче відповідь до задачки, якщо не впораєтесь самі - зможете переглянути.
 
 // const hours = Math.floor(totalMinutes / 60);
 // const minutes = totalMinutes % 60;
