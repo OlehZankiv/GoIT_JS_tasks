@@ -1,5 +1,54 @@
 // Модуль 5. Занятие 9. Контекст вызова функции и this
 //
+// THEORY ====>
+//
+// 1. Що таке this? [window, контекст виклику]
+// parseFloat, parseInt, Math ........
+
+// function voice() {
+//   console.log(this)
+// }
+
+// const user = {
+// 	name: "Ivan",
+// 	voice() {
+// 		console.log(this);
+// 	},
+// };
+
+// user.voice();
+
+// 2. Стрілочні функції і this;
+
+// const sayThis = () => console.log(this);
+// sayThis();
+
+// const user = {
+// 	name: "Ivan",
+// 	voice() {
+// 		sayThis();
+// 	},
+// };
+
+// 3. Як з this працює "use strict"? [window, стрілочні функції]
+// "use strict";
+
+// 4. bind, call i apply.
+// const user = {
+// 	nickname: "Ivan",
+// 	getName() {
+// 		return this.nickname;
+// 	},
+// };
+
+// function logCallbackResult(callback) {
+// 	console.log(callback());
+// }
+
+// logCallbackResult(user.getName);
+
+//
+// <==== THEORY
 //
 // EXCEL ====>
 //
