@@ -5,15 +5,19 @@
 // 1. Що таке this? [window, контекст виклику]
 // parseFloat, parseInt, Math ........
 
+// console.log(window);
+
+// window.parseFloat()
+
 // function voice() {
-//   console.log(this)
+// 	console.log(this);
 // }
+
+// voice();
 
 // const user = {
 // 	name: "Ivan",
-// 	voice() {
-// 		console.log(this);
-// 	},
+// 	voice: voice,
 // };
 
 // user.voice();
@@ -26,32 +30,86 @@
 // const user = {
 // 	name: "Ivan",
 // 	voice() {
-// 		sayThis();
+// 		const childFunction = () => console.log(this);
+
+// 		childFunction();
 // 	},
 // };
+
+// user.voice();
 
 // 3. Як з this працює "use strict"? [window, стрілочні функції]
 // "use strict";
 
-// 4. bind, call i apply.
+// const foo = () => {
+// 	console.log(this);
+// };
+
+// foo();
+
 // const user = {
-// 	nickname: "Ivan",
-// 	getName() {
-// 		return this.nickname;
+// 	name: "Ivan",
+// 	voice: () => {
+// 		const childFunction = () => console.log(this);
+
+// 		childFunction();
 // 	},
 // };
 
+// user.voice();
+
+// 4. bind, call i apply.
+
+// const user = {
+// 	nickname: "Ivan",
+// 	getNickname(a, b, c) {
+// 		// console.log(a, b, c);
+// 		console.log(this);
+// 		// return this.nickname;
+// 	},
+// };
+
+// const f = user.getNickname.bind(user);
+
+// f.apply(user, [1, 2, 3]);
+// f.call(user, 1, 2, 3);
+
+// f.call(user);
+// const newF = f.bind(user);
+// newF();
+
+// console.log(f.apply(user, [1, 2, 3, 4]));
+
 // function logCallbackResult(callback) {
-// 	console.log(callback());
+//   console.log(callback());
 // }
 
-// logCallbackResult(user.getName);
+// logCallbackResult(user.getNickname.bind(user));
 
+// const f = user.getNickname.bind(user);
+
+// console.log(f());
 //
 // <==== THEORY
 //
 // EXCEL ====>
 //
+// "use strict";
+
+// this -> window
+// function foo() {
+//   this // -> this of foo
+// }
+
+// foo()
+
+// const foo = () => console.log(this);
+
+// const user = {
+//     voice: () => console.log(this),
+// }
+
+// foo();
 //
 // <==== EXCEL
 
@@ -68,7 +126,15 @@
 // 		{ name: "Sapphire", price: 1400, quantity: 7 },
 // 		{ name: "Ruby", price: 800, quantity: 2 },
 // 	],
-// 	calcTotalPrice(stoneName) {},
+// 	calcTotalPrice(stoneName) {
+// 		const foundStone = this.stones.find((stone) => stone.name === stoneName);
+
+// 		if (!foundStone) return 0;
+
+// 		const { price, quantity } = foundStone;
+
+// 		return price * quantity;
+// 	},
 // };
 
 // console.log(chopShop.calcTotalPrice("Emerald")); // 5200
@@ -88,10 +154,10 @@
 // 			list: "default",
 // 			...contact,
 // 			id: this.generateId(),
-// 			createdAt: getDate(),
+// 			createdAt: this.getDate(),
 // 		};
 
-// 		contacts.push(newContact);
+// 		this.contacts.push(newContact);
 // 	},
 
 // 	generateId() {
@@ -103,19 +169,17 @@
 // 	},
 // };
 
-// console.log(
-// 	phonebook.add({
-// 		name: "Mango",
-// 		email: "mango@mail.com",
-// 		list: "friends",
-// 	})
-// );
-// console.log(
-// 	phonebook.add({
-// 		name: "Poly",
-// 		email: "poly@hotmail.com",
-// 	})
-// );
+// phonebook.add({
+// 	name: "Mango",
+// 	email: "mango@mail.com",
+// 	list: "friends",
+// });
+// phonebook.add({
+// 	name: "Poly",
+// 	email: "poly@hotmail.com",
+// });
+
+// console.log(phonebook.contacts);
 
 // =>
 // Example 3 - Калькулятор
@@ -125,4 +189,31 @@
 // add() - возвращает сумму сохранённых значений.
 // mult() - перемножает сохранённые значения и возвращает результат.
 
-// const calculator = {};
+// const calculator = {
+// 	a: null,
+// 	b: null,
+
+// 	read(a, b) {
+// 		this.a = a;
+// 		this.b = b;
+// 	},
+// 	add() {
+// 		if (!this._getIsCalculatorValid()) return 0;
+
+// 		return this.a + this.b;
+// 	},
+// 	mult() {
+// 		if (!this._getIsCalculatorValid()) return 0;
+
+// 		return this.a * this.b;
+// 	},
+
+// 	_getIsCalculatorValid() {
+// 		return this.a !== null && this.b !== null;
+// 	},
+// };
+
+// calculator.read(10, 20);
+
+// console.log(calculator.add());
+// console.log(calculator.mult());
