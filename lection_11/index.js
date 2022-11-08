@@ -1,4 +1,17 @@
-const body = document.querySelector("body");
+//
+//
+//
+
+// 1. document (DOM, DOM-tree);
+// 2. document.querySelector
+// 3. Node types
+// 4. classList, style
+// 5. createElement, append
+// 6. textContent, innerHTML
+
+// -> EXCEL
+
+// <- EXCEL
 
 // Задача 1.
 // 1.1. Створити список технологій що вивчаються на курсі Fullstack
