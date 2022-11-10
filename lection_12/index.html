@@ -5,11 +5,27 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lection 11</title>
+    <title>Lection 12</title>
     <link rel="stylesheet" href="./index.css">
 </head>
 
 <body>
+    <button id="login-button">Open Login Modal</button>
+    <h2 class="hidden">That's ok, you are logged</h2>
+    <div class="modal-wrapper hidden">
+        <div class="overlay"></div>
+        <div class="modal">
+            <div class="close-button"></div>
+            <form id="login-form">
+                <input name="login" placeholder="Enter login">
+                <input name="password" placeholder="Enter password">
+
+                <button type="submit">Submit</button>
+
+                <h4 class="form-error hidden">Login or Password is incorrent</h4>
+            </form>
+        </div>
+    </div>
     <script src="./index.js"></script>
 </body>
 

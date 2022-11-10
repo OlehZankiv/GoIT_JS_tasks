@@ -1,0 +1,63 @@
+body {
+    position: relative;
+    padding: 0;
+    margin: 0;
+}
+
+.modal-wrapper {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    top: 0;
+    height: 100vh;
+}
+
+.modal {
+    padding: 64px 16px 16px 16px;
+    position: relative;
+    border-radius: 8px;
+
+    min-width: 300px;
+    background-color: rgb(255, 255, 255);
+}
+
+.hidden {
+    display: none;
+}
+
+
+.close-button {
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    border-radius: 50%;
+    background-color: red;
+    cursor: pointer;
+}
+
+.overlay {
+    position: absolute;
+    height: 100vh;
+    opacity: 0.5;
+    width: 100vw;
+    background-color: black;
+    cursor: pointer;
+}
+
+#login-button {
+    margin: 24px;
+}
+
+#login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px
+}
+
+.form-error {
+    color: red
+}
